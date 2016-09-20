@@ -292,7 +292,8 @@ public class WeChatServlet extends HttpServlet {
 				// 判断该用户之前是否已经关注过
 				Object memberInfo = readMember(fromUserName);
 				if (memberInfo == null) { // 第一次关注
-					result += responseMessage("msg_pls_signup") + msgId;
+					result += responseMessage("msg_pls_signup") + msgId + "\n";
+					result += responseMessage("msg_after_signup");
 				} else { // 已关注过
 					Map<?, ?> infoMap = (Map<?, ?>) memberInfo;
 					Object number = infoMap.get("number");
